@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+backend/.env
+.codex-homepage.png
+.codex-homepage-mobile.png

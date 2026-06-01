@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Encoder</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="container">
+          <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z"/><path d="M9 10h6v4H9z"/></svg></span><span>AI Cipher Lab</span></a>
+          <button class="nav-toggle" data-nav-toggle aria-expanded="false">☰</button>
+          <nav class="nav-links" data-nav-menu><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="encrypt.html">Şifrele</a><a class="nav-link" href="cipher-battle.html">Cipher Battle</a><a class="nav-link" href="decrypt.html">AI Cipher Detective</a><a class="nav-link" href="password.html">Parola Analizi</a><a class="nav-link" href="challenge.html">Challenge</a><a class="nav-link" href="about.html">Hakkında</a></nav>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="panel page-header">
+            <div>
+              <div class="section-kicker">Crypto Encoder</div>
+              <h1>Tek algoritma ile hızlı şifreleme</h1>
+              <p>Caesar, Atbash, Vigenere, Base64 ve Hex dönüşümlerini aynı premium arayüz içinde test edin.</p>
+            </div>
+            <div class="header-stats">
+              <div class="small-stat"><strong>Canlı Parametreler</strong><p>Seçilen algoritmaya göre shift ve key alanları dinamik açılır.</p></div>
+              <div class="warning-banner">Bu sistem eğitim amaçlıdır. AES ve RSA gibi modern şifreleme algoritmaları anahtar olmadan çözülemez.</div>
+            </div>
+          </section>
+          <section class="section form-shell">
+            <article class="panel form-panel">
+              <form id="encrypt-form" class="stack">
+                <div class="field"><label for="text">Metin</label><textarea id="text" name="text" placeholder="Şifrelenecek metni buraya yazın"></textarea></div>
+                <div class="field"><label for="algorithm">Algoritma seç</label><select id="algorithm" name="algorithm"><option value="caesar">Caesar Cipher</option><option value="atbash">Atbash Cipher</option><option value="vigenere">Vigenere Cipher</option><option value="base64">Base64 Encode</option><option value="hex">Hex Encode</option></select></div>
+                <div class="field" data-shift-field><label for="shift">Shift</label><input id="shift" name="shift" type="number" min="1" max="25" value="3" /></div>
+                <div class="field hidden" data-key-field><label for="key">Key</label><input id="key" name="key" type="text" value="CRYPTO" /></div>
+                <div class="inline-actions">
+                  <button class="button" type="submit">Şifrele</button>
+                  <button class="ghost-button" type="button" id="copy-result">Kopyala</button>
+                  <button class="danger-button" type="button" id="clear-form">Temizle</button>
+                </div>
+              </form>
+            </article>
+            <article class="panel content-panel">
+              <h2>Sonuç</h2>
+              <div class="result-value" id="encrypt-result">Sonuç burada görünecek.</div>
+            </article>
+          </section>
+        </div>
+      </main>
+      <footer class="footer"><div class="container">AI Cipher Lab · <span data-year></span></div></footer>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/encrypt.js"></script>
+  </body>
+</html>

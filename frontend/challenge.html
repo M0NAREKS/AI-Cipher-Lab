@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI vs Human Challenge</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="container">
+          <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z"/><path d="M9 10h6v4H9z"/></svg></span><span>AI Cipher Lab</span></a>
+          <button class="nav-toggle" data-nav-toggle aria-expanded="false">☰</button>
+          <nav class="nav-links" data-nav-menu><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="encrypt.html">Şifrele</a><a class="nav-link" href="cipher-battle.html">Cipher Battle</a><a class="nav-link" href="decrypt.html">AI Cipher Detective</a><a class="nav-link" href="password.html">Parola Analizi</a><a class="nav-link" href="challenge.html">Challenge</a><a class="nav-link" href="about.html">Hakkında</a></nav>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="panel page-header">
+            <div><div class="section-kicker">AI vs Human Challenge</div><h1>Klasik şifreyi sen mi, AI mı daha hızlı okur?</h1><p>Rastgele bir klasik şifreleme örneği verilir. Siz açık metni tahmin edersiniz; ardından sistem AI tahminiyle karşılaştırır.</p></div>
+            <div class="header-stats"><div class="warning-banner">Bu mod tamamen eğitsel amaçlıdır. Modern şifreleme sistemlerine karşı bir saldırı aracı değildir.</div></div>
+          </section>
+          <section class="section form-shell">
+            <article class="panel content-panel">
+              <h2>Challenge Metni</h2>
+              <div class="result-value" id="challenge-cipher-text">Yükleniyor...</div>
+              <p class="helper-text" id="challenge-hint"></p>
+              <div class="result-actions"><button class="ghost-button" type="button" id="new-challenge">Yeni Challenge</button></div>
+            </article>
+            <article class="panel form-panel">
+              <form id="challenge-form" class="stack">
+                <div class="field"><label for="user_guess">Açık metin tahmininiz</label><textarea id="user_guess" name="user_guess" placeholder="Şifreli metnin ne olduğunu yazın"></textarea></div>
+                <button class="button" type="submit">Tahmini Değerlendir</button>
+              </form>
+            </article>
+          </section>
+          <section class="section" id="challenge-result"></section>
+        </div>
+      </main>
+      <footer class="footer"><div class="container">AI Cipher Lab · <span data-year></span></div></footer>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/challenge.js"></script>
+  </body>
+</html>

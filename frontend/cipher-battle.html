@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Battle</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="container">
+          <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z"/><path d="M9 10h6v4H9z"/></svg></span><span>AI Cipher Lab</span></a>
+          <button class="nav-toggle" data-nav-toggle aria-expanded="false">☰</button>
+          <nav class="nav-links" data-nav-menu><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="encrypt.html">Şifrele</a><a class="nav-link" href="cipher-battle.html">Cipher Battle</a><a class="nav-link" href="decrypt.html">AI Cipher Detective</a><a class="nav-link" href="password.html">Parola Analizi</a><a class="nav-link" href="challenge.html">Challenge</a><a class="nav-link" href="about.html">Hakkında</a></nav>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="panel page-header">
+            <div><div class="section-kicker">Cipher Battle</div><h1>Aynı metni beş algoritma ile karşılaştır</h1><p>Farklı dönüşümlerin çıktı yapısını kartlar halinde yan yana inceleyin.</p></div>
+            <div class="header-stats"><div class="small-stat"><strong>Karşılaştırmalı görünüm</strong><p>Algoritmalar eş zamanlı çalışır ve her kart tek bakışta kopyalanabilir.</p></div></div>
+          </section>
+          <section class="section">
+            <article class="panel form-panel">
+              <form id="battle-form" class="stack">
+                <div class="field"><label for="text">Metin</label><textarea id="text" name="text" placeholder="Karşılaştırmak istediğiniz metni yazın"></textarea></div>
+                <div class="check-grid">
+                  <div class="field"><label for="shift">Caesar Shift</label><input id="shift" name="shift" type="number" min="1" max="25" value="3" /></div>
+                  <div class="field"><label for="key">Vigenere Key</label><input id="key" name="key" type="text" value="CRYPTO" /></div>
+                </div>
+                <button class="button" type="submit">Battle Başlat</button>
+              </form>
+            </article>
+          </section>
+          <section class="section">
+            <div class="battle-grid" id="battle-results"><div class="centered-empty">Sonuçlar burada listelenecek.</div></div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer"><div class="container">AI Cipher Lab · <span data-year></span></div></footer>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/battle.js"></script>
+  </body>
+</html>

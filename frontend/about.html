@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkında</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="container">
+          <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v10l-7 4-7-4V7l7-4z"/><path d="M9 10h6v4H9z"/></svg></span><span>AI Cipher Lab</span></a>
+          <button class="nav-toggle" data-nav-toggle aria-expanded="false">☰</button>
+          <nav class="nav-links" data-nav-menu><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="encrypt.html">Şifrele</a><a class="nav-link" href="cipher-battle.html">Cipher Battle</a><a class="nav-link" href="decrypt.html">AI Cipher Detective</a><a class="nav-link" href="password.html">Parola Analizi</a><a class="nav-link" href="challenge.html">Challenge</a><a class="nav-link" href="about.html">Hakkında</a></nav>
+        </div>
+      </header>
+      <main class="page">
+        <div class="container">
+          <section class="panel page-header">
+            <div><div class="section-kicker">Hakkında</div><h1>AI Cipher Lab neden var?</h1><p>Bu uygulama bir kriptografi dersi ödevi için, klasik şifreleme mantığını premium bir laboratuvar deneyimi içinde göstermek amacıyla geliştirildi.</p></div>
+            <div class="header-stats"><div class="warning-banner">Bu proje eğitim amaçlı geliştirilmiştir. Modern şifreleme sistemleri olan AES ve RSA anahtar olmadan çözülemez. Buradaki analiz sistemi klasik şifreleme yöntemlerini ve kodlama tekniklerini incelemektedir.</div></div>
+          </section>
+          <section class="section">
+            <div class="about-grid">
+              <article class="about-card"><strong>Projenin Amacı</strong><p>Öğrencilere şifreleme mantığını, okunabilirlik skorlarını ve AI destekli teknik yorumlamayı aynı yüzeyde göstermek.</p></article>
+              <article class="about-card"><strong>Kullanılan Teknolojiler</strong><p>Frontend tarafında HTML, CSS ve Vanilla JS; backend tarafında FastAPI, Pydantic, Uvicorn ve opsiyonel Groq API kullanılır.</p></article>
+              <article class="about-card"><strong>AI'nin Rolü</strong><p>AI burada sonuçları neden mantıklı olduğu üzerinden yorumlar. Çözümü backend üretir; AI sadece açıklayıcı katmandır.</p></article>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer"><div class="container">AI Cipher Lab · <span data-year></span></div></footer>
+    </div>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
