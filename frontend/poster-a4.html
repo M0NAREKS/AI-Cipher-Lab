@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Cipher Lab Poster</title>
+    <style>
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      :root {
+        --bg: #07101c;
+        --panel: rgba(14, 24, 42, 0.9);
+        --panel-soft: rgba(19, 31, 55, 0.78);
+        --line: rgba(124, 230, 255, 0.2);
+        --text: #f4f7ff;
+        --muted: #9ab0d0;
+        --accent: #7ce6ff;
+        --accent-strong: #43b7ff;
+        --good: #46e2a0;
+        --warn: #ffd166;
+        --danger: #ff6b8a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #0a1220;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 16px;
+      }
+
+      .poster-page {
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+        position: relative;
+        background:
+          radial-gradient(circle at top left, rgba(67, 183, 255, 0.22), transparent 28%),
+          radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 24%),
+          linear-gradient(180deg, #09101c 0%, #060911 56%, #04070d 100%);
+      }
+
+      .poster-page::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 16mm 16mm;
+        mask-image: radial-gradient(circle at center, black 54%, transparent 100%);
+        opacity: 0.28;
+        pointer-events: none;
+      }
+
+      .poster {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        padding: 16mm 15mm 14mm;
+        display: grid;
+        grid-template-rows: auto auto auto 1fr auto;
+        gap: 6mm;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6mm;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 4mm;
+        font-size: 11pt;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-mark {
+        width: 12mm;
+        height: 12mm;
+        border-radius: 4mm;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, rgba(124, 230, 255, 0.3), rgba(139, 92, 246, 0.24));
+        border: 0.3mm solid rgba(124, 230, 255, 0.24);
+      }
+
+      .brand-mark svg {
+        width: 6mm;
+        height: 6mm;
+        color: var(--accent);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 1.5mm 3mm;
+        border-radius: 999px;
+        background: rgba(124, 230, 255, 0.08);
+        color: var(--accent);
+        font-size: 8pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 6mm;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, rgba(17, 30, 52, 0.88), rgba(11, 19, 32, 0.78));
+        border: 0.3mm solid var(--line);
+        border-radius: 7mm;
+        padding: 6mm;
+        box-shadow: 0 5mm 12mm rgba(0, 0, 0, 0.22);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 4mm;
+        font-size: 28pt;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+
+      .subtitle {
+        margin-top: 3mm;
+        font-size: 12.5pt;
+        color: #dce7fb;
+        line-height: 1.45;
+        max-width: 34ch;
+      }
+
+      .lead {
+        margin-top: 4mm;
+        color: var(--muted);
+        font-size: 10.5pt;
+        line-height: 1.65;
+      }
+
+      .warning {
+        margin-top: 5mm;
+        padding: 4mm;
+        border-radius: 5mm;
+        background: rgba(255, 209, 102, 0.08);
+        border: 0.3mm solid rgba(255, 209, 102, 0.2);
+        color: #ffe7a7;
+        font-size: 9.5pt;
+        line-height: 1.5;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+      }
+
+      .stat {
+        background: rgba(8, 15, 25, 0.84);
+        border: 0.3mm solid rgba(124, 230, 255, 0.14);
+        border-radius: 5mm;
+        padding: 4mm;
+        min-height: 28mm;
+      }
+
+      .stat span {
+        display: block;
+        color: var(--muted);
+        font-size: 9pt;
+        margin-bottom: 2mm;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 14pt;
+        line-height: 1.2;
+      }
+
+      .section-title {
+        font-size: 14pt;
+        line-height: 1.2;
+        margin-bottom: 2.5mm;
+      }
+
+      .section-copy {
+        color: var(--muted);
+        font-size: 9.6pt;
+        line-height: 1.55;
+      }
+
+      .mid-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6mm;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5mm;
+        margin-top: 4mm;
+      }
+
+      .card {
+        background: rgba(10, 18, 31, 0.74);
+        border: 0.3mm solid rgba(124, 230, 255, 0.12);
+        border-radius: 5mm;
+        padding: 4mm;
+      }
+
+      .card h3 {
+        font-size: 10.4pt;
+        margin-bottom: 1.8mm;
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: 8.8pt;
+        line-height: 1.5;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5mm;
+        margin-top: 4mm;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 8mm 1fr;
+        gap: 3mm;
+        padding: 3.4mm;
+        border-radius: 5mm;
+        background: rgba(8, 15, 25, 0.78);
+        border: 0.3mm solid rgba(124, 230, 255, 0.12);
+      }
+
+      .step-index {
+        width: 8mm;
+        height: 8mm;
+        display: grid;
+        place-items: center;
+        border-radius: 2.4mm;
+        background: linear-gradient(135deg, var(--accent), #83b6ff);
+        color: #05111d;
+        font-size: 9pt;
+        font-weight: 800;
+      }
+
+      .step h3 {
+        font-size: 9.8pt;
+        margin-bottom: 1.4mm;
+      }
+
+      .step p {
+        color: var(--muted);
+        font-size: 8.3pt;
+        line-height: 1.42;
+      }
+
+      .bottom-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 6mm;
+      }
+
+      .compare {
+        display: grid;
+        gap: 3.5mm;
+        margin-top: 4mm;
+      }
+
+      .compare-box {
+        padding: 4mm;
+        border-radius: 5mm;
+        border: 0.3mm solid rgba(124, 230, 255, 0.12);
+      }
+
+      .compare-good {
+        background: linear-gradient(180deg, rgba(9, 30, 24, 0.84), rgba(8, 18, 17, 0.68));
+        border-color: rgba(70, 226, 160, 0.16);
+      }
+
+      .compare-risk {
+        background: linear-gradient(180deg, rgba(39, 20, 28, 0.84), rgba(20, 11, 16, 0.68));
+        border-color: rgba(255, 107, 138, 0.16);
+      }
+
+      .compare-box h3 {
+        font-size: 10.4pt;
+        margin-bottom: 2mm;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 4.5mm;
+        color: var(--muted);
+        font-size: 8.8pt;
+        line-height: 1.5;
+      }
+
+      li + li {
+        margin-top: 1mm;
+      }
+
+      .quote {
+        margin-top: 4mm;
+        padding: 5mm;
+        border-radius: 5mm;
+        background: rgba(124, 230, 255, 0.06);
+        border: 0.3mm solid rgba(124, 230, 255, 0.14);
+      }
+
+      .quote strong {
+        display: block;
+        color: var(--accent);
+        font-size: 8.5pt;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+      }
+
+      .quote p {
+        font-size: 12pt;
+        line-height: 1.45;
+      }
+
+      .footer {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 6mm;
+        padding-top: 2mm;
+      }
+
+      .footer-note {
+        color: var(--muted);
+        font-size: 8.4pt;
+        line-height: 1.45;
+        max-width: 42ch;
+      }
+
+      .footer-badge {
+        padding: 3mm 4mm;
+        border-radius: 999px;
+        background: rgba(124, 230, 255, 0.08);
+        border: 0.3mm solid rgba(124, 230, 255, 0.16);
+        color: var(--accent);
+        font-size: 8.5pt;
+        white-space: nowrap;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+          background: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="poster-page">
+      <div class="poster">
+        <div class="topbar">
+          <div class="brand">
+            <span class="brand-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l7 4v10l-7 4-7-4V7l7-4z"></path>
+                <path d="M9 10h6v4H9z"></path>
+              </svg>
+            </span>
+            <span>AI Cipher Lab</span>
+          </div>
+          <span class="eyebrow">A4 Poster</span>
+        </div>
+
+        <section class="hero">
+          <article class="panel">
+            <span class="eyebrow">Araştırma konusu</span>
+            <h1>Yapay zekâ şifrelemeyi ne kadar anlayabilir?</h1>
+            <p class="subtitle">
+              Kriptografi güvenliğini klasik yöntemler üzerinden inceleyen, açıklanabilir ve
+              etkileşimli bir eğitim platformu.
+            </p>
+            <p class="lead">
+              AI Cipher Lab; şifreleme denemeleri, aday çözüm karşılaştırması, heuristic puanlama,
+              LLM destekli yorumlama ve parola güvenlik analizi araçlarını tek laboratuvar
+              deneyiminde birleştirir. Odak noktası “AI her şeyi çözer mi?” sorusuna kontrollü ve
+              teknik bir yanıt vermektir.
+            </p>
+            <div class="warning">
+              Bu sistem eğitim amaçlıdır. AES ve RSA gibi modern algoritmalar anahtar olmadan
+              çözülemez; burada gösterilen akış klasik yöntemleri ve analiz mantığını görünür kılar.
+            </div>
+          </article>
+
+          <aside class="stats">
+            <div class="stat">
+              <span>Analiz modeli</span>
+              <strong>Heuristic + LLM</strong>
+            </div>
+            <div class="stat">
+              <span>Çalışma alanı</span>
+              <strong>Klasik yöntemler</strong>
+            </div>
+            <div class="stat">
+              <span>Proje hedefi</span>
+              <strong>Açıklanabilir sonuç</strong>
+            </div>
+            <div class="stat">
+              <span>Modern sınır</span>
+              <strong>Anahtarsız çözüm yok</strong>
+            </div>
+          </aside>
+        </section>
+
+        <section class="mid-grid">
+          <article class="panel">
+            <h2 class="section-title">Platform ne gösteriyor?</h2>
+            <p class="section-copy">
+              Proje, yapay zekânın doğrudan matematiksel güvenliği kıran bir motor olmadığını;
+              bunun yerine aday çözümleri sıralayan, doğal metinleri öne çıkaran ve öğrencinin karar
+              sürecini teknik açıklamalarla destekleyen bir analiz katmanı olduğunu gösterir.
+            </p>
+            <div class="cards">
+              <div class="card">
+                <h3>Şifreleme denemeleri</h3>
+                <p>Caesar, Atbash, Vigenere, Base64 ve Hex dönüşümleri aynı yüzeyde incelenir.</p>
+              </div>
+              <div class="card">
+                <h3>AI Cipher Detective</h3>
+                <p>Birden fazla aday plaintext üretir ve en anlamlı sonucu seçer.</p>
+              </div>
+              <div class="card">
+                <h3>Parola analizi</h3>
+                <p>Tekrarlar, tahmin edilebilir kalıplar ve zayıf yapı sinyalleri görünürleşir.</p>
+              </div>
+              <div class="card">
+                <h3>Modern bağlam</h3>
+                <p>AI destekli analiz ile modern kriptografik güvenlik arasındaki fark netleşir.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h2 class="section-title">Detective akışı</h2>
+            <p class="section-copy">
+              Uzun açıklamalar yerine izlenebilir bir karar zinciri kullanılır; çözüm adım adım
+              şeffaflaştırılır.
+            </p>
+            <div class="flow">
+              <div class="step">
+                <span class="step-index">1</span>
+                <div>
+                  <h3>Girdi alınır</h3>
+                  <p>Kullanıcı şifreli metni sisteme verir.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-index">2</span>
+                <div>
+                  <h3>Klasik yöntemler denenir</h3>
+                  <p>Caesar, Atbash, Base64, Hex ve Vigenere adayları üretilir.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-index">3</span>
+                <div>
+                  <h3>Adaylar kaydedilir</h3>
+                  <p>Her sonuç algoritma, parametre ve decoded text ile tutulur.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-index">4</span>
+                <div>
+                  <h3>Heuristic puanlama yapılır</h3>
+                  <p>Sözlük eşleşmesi, okunabilirlik ve anlamsızlık cezası hesaplanır.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-index">5</span>
+                <div>
+                  <h3>LLM karşılaştırma yapar</h3>
+                  <p>AI yeni çözüm üretmez; mevcut adaylar arasından seçim yapar.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-index">6</span>
+                <div>
+                  <h3>Nihai çıktı sunulur</h3>
+                  <p>En güçlü aday ve açıklayıcı yorum kullanıcıya gösterilir.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="panel">
+            <h2 class="section-title">AI ne yapabilir, ne yapamaz?</h2>
+            <div class="compare">
+              <div class="compare-box compare-good">
+                <h3>Gerçek katkı</h3>
+                <ul>
+                  <li>Aday sonuçları hızlı karşılaştırır.</li>
+                  <li>Doğal görünen plaintextleri öne çıkarır.</li>
+                  <li>Zayıf parola örüntülerini görünür kılar.</li>
+                  <li>Öğrenme sürecini teknik ama anlaşılır hale getirir.</li>
+                </ul>
+              </div>
+              <div class="compare-box compare-risk">
+                <h3>Temel sınırlar</h3>
+                <ul>
+                  <li>AES ve RSA gibi modern algoritmaları anahtarsız çözemez.</li>
+                  <li>Matematiksel güvenliği sihirli biçimde aşamaz.</li>
+                  <li>Her şifreli metin için doğru plaintext garantisi vermez.</li>
+                  <li>İnsan doğrulaması hâlâ gereklidir.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h2 class="section-title">Projenin ana sonucu</h2>
+            <div class="quote">
+              <strong>Sonuç</strong>
+              <p>
+                Yapay zekâ analiz sürecini destekleyebilir; ancak güvenli şifreleme tasarımının
+                yerini alamaz. Modern kriptografide belirleyici olan hâlâ doğru algoritma, sağlam
+                anahtar yönetimi ve insan tarafından doğrulanan güvenlik mühendisliğidir.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <footer class="footer">
+          <p class="footer-note">
+            AI Cipher Lab, klasik şifreleme örnekleri üzerinden açıklanabilir güvenlik analizi
+            sunmak için tasarlanmış bir eğitim projesidir.
+          </p>
+          <span class="footer-badge">A4 baskı için hazır</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

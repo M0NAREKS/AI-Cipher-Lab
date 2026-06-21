@@ -37,16 +37,26 @@
           <section class="panel page-header">
             <div>
               <div class="section-kicker">Kaynakça</div>
-              <h1>Ana sayfadaki bilgiler hangi kaynaklara dayanıyor?</h1>
+              <h1>Ana sayfadaki içeriklerin dayanakları</h1>
               <p>
-                Bu sayfa, AI Cipher Lab ana sayfasında geçen teknik iddiaları iki gruba ayırır:
-                dış teknik kaynaklar ve uygulamanın kendi çalışma mantığını gösteren kod referansları.
+                Bu sayfa, AI Cipher Lab ana sayfasında kullanılan teknik ifadeleri daha düzenli biçimde
+                listeler. Kaynaklar iki gruba ayrılmıştır: dış teknik/akademik referanslar ve projenin
+                kendi uygulama mantığını gösteren kod referansları.
               </p>
             </div>
-            <div class="header-stats">
+            <div class="header-stats source-summary-grid">
+              <div class="small-stat">
+                <strong>6 dış kaynak</strong>
+                <p>NIST, RFC, FastAPI ve Groq dokümantasyonu</p>
+              </div>
+              <div class="small-stat">
+                <strong>6 proje referansı</strong>
+                <p>Arayüz, backend mantığı ve veri dosyaları</p>
+              </div>
               <div class="warning-banner">
-                Not: Buradaki klasik yöntemler eğitim amaçlı örneklerdir. Modern kriptografi hakkındaki
-                ifadeler NIST ve RFC gibi birincil kaynaklara dayandırılmıştır.
+                Not: Buradaki klasik yöntemler eğitim amaçlı örneklerdir. Modern kriptografi ile ilgili
+                iddialar birincil kaynaklarla; uygulamanın davranışı ise doğrudan proje koduyla
+                desteklenmiştir.
               </div>
             </div>
           </section>
@@ -55,70 +65,168 @@
             <div class="section-header section-header-wide">
               <h2>Dış Teknik Kaynaklar</h2>
               <p class="body-copy section-copy-limit">
-                Ana sayfadaki “modern kriptografi”, “Base64 ve Hex”, “RSA”, “AES” ve parola güvenliği
-                çerçevesiyle ilgili metinler için kullanılan başlıca kaynaklar aşağıdadır.
+                Aşağıdaki kaynaklar, ana sayfada yer alan AES, RSA, Base64, Hex, parola güvenliği ve
+                uygulamanın teknoloji altyapısı ile ilgili ifadeleri desteklemek için kullanılmıştır.
               </p>
             </div>
-            <div class="about-grid">
+            <div class="source-collection">
               <article class="about-card source-card">
-                <strong>NIST FIPS 197: AES</strong>
+                <div class="source-badge-row">
+                  <span class="badge">Resmî standart</span>
+                </div>
+                <h3>NIST FIPS 197: Advanced Encryption Standard (AES)</h3>
                 <p>
-                  AES'in modern, simetrik blok şifreleme standardı olduğunu ve elektronik veriyi korumak
-                  için kullanıldığını temel almak için kullanıldı.
+                  Ana sayfadaki “AES modern bir şifreleme standardıdır ve anahtarsız çözülemez” çerçevesini
+                  destekler.
                 </p>
-                <a class="source-link" href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf" target="_blank" rel="noreferrer">
-                  Açık kaynak doküman
-                </a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>AES'in modern simetrik blok şifreleme standardı olarak konumlandırılması.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantı</span>
+                    <a class="source-url" href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf" target="_blank" rel="noreferrer">
+                      nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf" target="_blank" rel="noreferrer">PDF Kaynağını Aç</a>
+                </div>
               </article>
+
               <article class="about-card source-card">
-                <strong>NIST RSA Glossary</strong>
+                <div class="source-badge-row">
+                  <span class="badge">NIST sözlüğü</span>
+                </div>
+                <h3>NIST RSA Glossary</h3>
                 <p>
-                  RSA'nın bir açık anahtarlı algoritma olduğu ve anahtar kurma ile dijital imza doğrulama
-                  bağlamında konumlandığını desteklemek için kullanıldı.
+                  RSA'nın açık anahtarlı kriptografi içinde konumlandığını ve modern bağlamda ayrı bir sınıf
+                  olduğunu göstermek için kullanılmıştır.
                 </p>
-                <a class="source-link" href="https://csrc.nist.gov/glossary/term/rsa" target="_blank" rel="noreferrer">
-                  NIST sözlük girdisi
-                </a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>RSA'nın modern kriptografi bağlamında açık anahtarlı bir yapı olarak ele alınması.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantı</span>
+                    <a class="source-url" href="https://csrc.nist.gov/glossary/term/rsa" target="_blank" rel="noreferrer">
+                      csrc.nist.gov/glossary/term/rsa
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://csrc.nist.gov/glossary/term/rsa" target="_blank" rel="noreferrer">Kaynağı Aç</a>
+                </div>
               </article>
+
               <article class="about-card source-card">
-                <strong>RFC 4648: Base16 ve Base64</strong>
+                <div class="source-badge-row">
+                  <span class="badge">IETF standardı</span>
+                </div>
+                <h3>RFC 4648: Base16, Base32, Base64 Data Encodings</h3>
                 <p>
-                  Base64 ve Hex'in şifreleme değil, veri kodlama/gösterim şemaları olduğunu dayandırmak
-                  için kullanıldı.
+                  Base64 ve Hex'in şifreleme değil, veri kodlama/gösterim biçimleri olduğunu açıklamak için
+                  kullanılmıştır.
                 </p>
-                <a class="source-link" href="https://datatracker.ietf.org/doc/html/rfc4648" target="_blank" rel="noreferrer">
-                  IETF standardı
-                </a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>Base64 ve Hex'in klasik veri temsili/kodlama şemaları olarak sunulması.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantı</span>
+                    <a class="source-url" href="https://datatracker.ietf.org/doc/html/rfc4648" target="_blank" rel="noreferrer">
+                      datatracker.ietf.org/doc/html/rfc4648
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://datatracker.ietf.org/doc/html/rfc4648" target="_blank" rel="noreferrer">RFC Metnini Aç</a>
+                </div>
               </article>
+
               <article class="about-card source-card">
-                <strong>NIST SP 800-63B</strong>
+                <div class="source-badge-row">
+                  <span class="badge">Parola rehberi</span>
+                </div>
+                <h3>NIST SP 800-63B</h3>
                 <p>
-                  Parola güvenliği tartışmasında minimum uzunluk, kara liste yaklaşımı ve katı bileşim
-                  kurallarına dair güncel resmî rehber için kullanıldı.
+                  Parola güvenliği çerçevesi, minimum uzunluk yaklaşımı ve yaygın parolaların engellenmesi
+                  gibi konular için başvuru kaynağıdır.
                 </p>
-                <a class="source-link" href="https://pages.nist.gov/800-63-4/sp800-63b.html" target="_blank" rel="noreferrer">
-                  NIST parola rehberi
-                </a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>Parola güvenliğinin yalnızca karakter türü değil, yapı ve tahmin edilebilirlik ile de değerlendirilmesi.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantı</span>
+                    <a class="source-url" href="https://pages.nist.gov/800-63-4/sp800-63b.html" target="_blank" rel="noreferrer">
+                      pages.nist.gov/800-63-4/sp800-63b.html
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://pages.nist.gov/800-63-4/sp800-63b.html" target="_blank" rel="noreferrer">Rehberi Aç</a>
+                </div>
               </article>
+
               <article class="about-card source-card">
-                <strong>NIST Cryptographic Technology</strong>
+                <div class="source-badge-row">
+                  <span class="badge">Genel çerçeve</span>
+                </div>
+                <h3>NIST Cryptographic Technology</h3>
                 <p>
-                  Simetrik şifreleme, asimetrik şifreleme, hash, anahtar yönetimi ve kimlik doğrulamanın
-                  modern güvenlik mimarisindeki yerini çerçevelemek için kullanıldı.
+                  Simetrik şifreleme, asimetrik şifreleme, hash fonksiyonları ve anahtar yönetimi gibi
+                  kavramların modern güvenlik mimarisindeki yerini çerçevelemek için kullanılmıştır.
                 </p>
-                <a class="source-link" href="https://www.nist.gov/itl/csd/cryptographic-technology" target="_blank" rel="noreferrer">
-                  NIST genel bakış
-                </a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>Modern kriptografinin klasik yöntemlerden daha geniş ve farklı güvenlik varsayımlarına dayanması.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantı</span>
+                    <a class="source-url" href="https://www.nist.gov/itl/csd/cryptographic-technology" target="_blank" rel="noreferrer">
+                      nist.gov/itl/csd/cryptographic-technology
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://www.nist.gov/itl/csd/cryptographic-technology" target="_blank" rel="noreferrer">NIST Sayfasını Aç</a>
+                </div>
               </article>
+
               <article class="about-card source-card">
-                <strong>FastAPI ve Groq Dokümantasyonu</strong>
+                <div class="source-badge-row">
+                  <span class="badge">Teknoloji dokümanı</span>
+                </div>
+                <h3>FastAPI StaticFiles ve Groq API Reference</h3>
                 <p>
-                  Uygulamanın FastAPI ile statik dosya servis etmesi ve Groq Chat Completions API
-                  kullanmasıyla ilgili teknoloji kısmı için kullanıldı.
+                  Projenin teknik altyapısında frontend dosyalarının nasıl servis edildiğini ve LLM
+                  yorumlama katmanının hangi API yaklaşımını kullandığını göstermek için eklenmiştir.
                 </p>
-                <div class="source-link-stack">
-                  <a class="source-link" href="https://fastapi.tiangolo.com/tutorial/static-files/" target="_blank" rel="noreferrer">FastAPI StaticFiles</a>
-                  <a class="source-link" href="https://console.groq.com/docs/api-reference" target="_blank" rel="noreferrer">Groq API Reference</a>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>Desteklediği ifade</span>
+                    <p>Frontend'in FastAPI üzerinden sunulması ve yorum katmanında Groq tabanlı chat completions yaklaşımı.</p>
+                  </div>
+                  <div class="source-meta">
+                    <span>Bağlantılar</span>
+                    <a class="source-url" href="https://fastapi.tiangolo.com/tutorial/static-files/" target="_blank" rel="noreferrer">
+                      fastapi.tiangolo.com/tutorial/static-files/
+                    </a>
+                    <a class="source-url" href="https://console.groq.com/docs/api-reference" target="_blank" rel="noreferrer">
+                      console.groq.com/docs/api-reference
+                    </a>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://fastapi.tiangolo.com/tutorial/static-files/" target="_blank" rel="noreferrer">FastAPI Docs</a>
+                  <a class="source-link source-link-secondary" href="https://console.groq.com/docs/api-reference" target="_blank" rel="noreferrer">Groq Docs</a>
                 </div>
               </article>
             </div>
@@ -126,55 +234,132 @@
 
           <section class="section section-band">
             <div class="section-header section-header-wide">
-              <h2>Uygulama İçi Kod Referansları</h2>
+              <h2>Proje İçi Kod Referansları</h2>
               <p class="body-copy section-copy-limit">
-                Ana sayfadaki “bu platform ne yapıyor?” sorusunun cevabı doğrudan aşağıdaki dosyalardan
-                çıkarılmıştır. Bunlar dış akademik kaynak değil, uygulamanın kendi davranışını kanıtlayan
-                birincil kod referanslarıdır.
+                Bu bölüm, sayfadaki anlatının projede gerçekten hangi dosyalara dayandığını gösterir. Her
+                kartın altında ilgili GitHub dosya bağlantısı verilmiştir.
               </p>
             </div>
-            <div class="grid-3">
-              <article class="info-card">
+            <div class="source-collection source-collection-compact">
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">Frontend</span>
+                </div>
                 <h3>Ana sayfa anlatısı</h3>
                 <p>
-                  Ana sayfadaki AI rolü, klasik yöntem vurgusu ve çalışma akışı metinleri
-                  <code>frontend/index.html</code> içinde yer alır.
+                  Ana sayfadaki araştırma sorusu, AI rolü, klasik yöntem vurgusu ve sonuç bölümleri
+                  doğrudan bu dosyada tanımlanır.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosya</span>
+                    <code>frontend/index.html</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/frontend/index.html" target="_blank" rel="noreferrer">GitHub'da Aç</a>
+                </div>
               </article>
-              <article class="info-card">
+
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">Backend</span>
+                </div>
                 <h3>Şifreleme ve çözüm mantığı</h3>
                 <p>
-                  Caesar, Atbash, Vigenere, Base64 ve Hex uygulamaları ile aday üretimi ve heuristic
-                  puanlama mantığı <code>backend/cipher_service.py</code> içinde tanımlıdır.
+                  Caesar, Atbash, Vigenere, Base64 ve Hex uygulamaları ile heuristic puanlama akışı bu dosyada yer alır.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosya</span>
+                    <code>backend/cipher_service.py</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/cipher_service.py" target="_blank" rel="noreferrer">GitHub'da Aç</a>
+                </div>
               </article>
-              <article class="info-card">
-                <h3>AI seçimi ve yorum katmanı</h3>
+
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">LLM katmanı</span>
+                </div>
+                <h3>AI seçimi ve yorum sistemi</h3>
                 <p>
-                  LLM'in yeni çözüm üretmeden mevcut adaylar arasından seçim yapması
-                  <code>backend/ai_service.py</code> ve <code>backend/main.py</code> içinde kurgulanmıştır.
+                  Adaylar arasından seçim yapan ve açıklama üreten LLM katmanı ile entegrasyon akışı bu
+                  dosyalar üzerinden kurulmuştur.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosyalar</span>
+                    <code>backend/ai_service.py</code>
+                    <code>backend/main.py</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/ai_service.py" target="_blank" rel="noreferrer">AI Service</a>
+                  <a class="source-link source-link-secondary" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/main.py" target="_blank" rel="noreferrer">Main API</a>
+                </div>
               </article>
-              <article class="info-card">
-                <h3>Parola analizi</h3>
+
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">Parola analizi</span>
+                </div>
+                <h3>Parola değerlendirme kuralları</h3>
                 <p>
-                  Uzunluk, karakter türleri, tekrar ve yaygın desen kontrolleri
-                  <code>backend/password_service.py</code> içinde eğitim amaçlı kurallar olarak uygulanır.
+                  Uzunluk, tekrar, sık kullanılan desenler ve karakter çeşitliliği kontrolleri bu servis
+                  içinde uygulanır.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosya</span>
+                    <code>backend/password_service.py</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/password_service.py" target="_blank" rel="noreferrer">GitHub'da Aç</a>
+                </div>
               </article>
-              <article class="info-card">
-                <h3>Statik arayüz servisi</h3>
+
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">Servis yapısı</span>
+                </div>
+                <h3>Statik arayüz servisi ve endpointler</h3>
                 <p>
-                  Frontend dosyalarının FastAPI üzerinden <code>/static</code> altında sunulması
-                  <code>backend/main.py</code> içindeki mount yapısıyla gerçekleştirilir.
+                  Frontend dosyalarının <code>/static</code> altında sunulması ve API endpointlerinin tanımı
+                  bu dosyada bulunur.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosya</span>
+                    <code>backend/main.py</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/main.py" target="_blank" rel="noreferrer">GitHub'da Aç</a>
+                </div>
               </article>
-              <article class="info-card">
+
+              <article class="info-card source-card">
+                <div class="source-badge-row">
+                  <span class="badge">Veri dosyası</span>
+                </div>
                 <h3>Türkçe sözlük tabanı</h3>
                 <p>
-                  Aday doğal dil puanlamasında kullanılan kelime verisi
-                  <code>backend/data/turkish_words.txt</code> dosyasından yüklenir.
+                  Aday çözüm doğal dil puanlamasında kullanılan yerel kelime listesi bu veri dosyasından
+                  yüklenir.
                 </p>
+                <div class="source-meta-list">
+                  <div class="source-meta">
+                    <span>İlgili dosya</span>
+                    <code>backend/data/turkish_words.txt</code>
+                  </div>
+                </div>
+                <div class="source-actions">
+                  <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab/blob/master/backend/data/turkish_words.txt" target="_blank" rel="noreferrer">GitHub'da Aç</a>
+                </div>
               </article>
             </div>
           </section>
@@ -185,14 +370,18 @@
             </div>
             <article class="content-panel conclusion-panel">
               <p>
-                Parola analiz ekranındaki kurallar, NIST SP 800-63B ile birebir aynı değildir. Bu proje,
+                Parola analiz ekranındaki kontroller, NIST SP 800-63B ile birebir aynı değildir. Projede
                 eğitimde görünürlüğü artırmak için büyük harf, küçük harf, rakam ve özel karakter gibi
-                açıklaması kolay heuristic kontroller de uygular.
+                açıklaması kolay heuristic kurallar da ayrıca uygulanır.
               </p>
               <p>
-                Dolayısıyla bu sayfadaki kaynakça iki şeyi birlikte gösterir: teorik iddiaların dayandığı
-                resmî kaynaklar ve AI Cipher Lab'in gerçekte nasıl çalıştığını kanıtlayan uygulama kodu.
+                Bu nedenle bu kaynakça sayfası iki şeyi birlikte sunar: teorik iddiaların dayandığı resmî
+                bağlantılar ve projenin gerçekte hangi dosyalar üzerinden çalıştığını gösteren uygulama
+                referansları.
               </p>
+              <div class="source-actions">
+                <a class="source-link" href="https://github.com/M0NAREKS/AI-Cipher-Lab" target="_blank" rel="noreferrer">Proje Deposunu Aç</a>
+              </div>
             </article>
           </section>
         </div>

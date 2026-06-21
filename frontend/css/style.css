@@ -897,10 +897,85 @@ svg {
   border-color: rgba(255, 107, 138, 0.28);
 }
 
-.source-card,
-.source-link-stack {
+.source-summary-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.source-collection {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.source-collection-compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.source-card {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-height: 100%;
+}
+
+.source-card h3 {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.source-card .source-actions {
+  margin-top: auto;
+}
+
+.source-card p,
+.source-meta p {
+  margin: 0;
+}
+
+.source-badge-row,
+.source-actions,
+.source-link-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.source-meta-list {
+  display: grid;
+  gap: 10px;
+}
+
+.source-meta {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(124, 230, 255, 0.08);
+}
+
+.source-meta span {
+  color: var(--accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.source-meta code {
+  display: block;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(124, 230, 255, 0.06);
+  border: 1px solid rgba(124, 230, 255, 0.1);
+}
+
+.source-url {
+  color: #c9e5ff;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 230, 255, 0.3);
+  text-underline-offset: 3px;
+  word-break: break-word;
 }
 
 .source-link {
@@ -917,10 +992,18 @@ svg {
   transition: transform var(--ease), border-color var(--ease), background var(--ease);
 }
 
+.source-link-secondary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .source-link:hover {
   transform: translateY(-2px);
   border-color: rgba(124, 230, 255, 0.3);
   background: rgba(124, 230, 255, 0.12);
+}
+
+.source-summary-grid .warning-banner {
+  grid-column: 1 / -1;
 }
 
 .badge {
@@ -1016,6 +1099,8 @@ svg {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .source-collection,
+  .source-collection-compact,
   .grid-3,
   .about-grid,
   .attempt-grid,
@@ -1104,12 +1189,18 @@ svg {
 
   .grid-3,
   .grid-4,
+  .source-collection,
+  .source-collection-compact,
   .about-grid,
   .attempt-grid,
   .result-grid,
   .timeline-grid,
   .battle-grid,
   .check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .source-summary-grid {
     grid-template-columns: 1fr;
   }
 
