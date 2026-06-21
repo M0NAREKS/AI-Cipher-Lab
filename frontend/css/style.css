@@ -897,6 +897,32 @@ svg {
   border-color: rgba(255, 107, 138, 0.28);
 }
 
+.source-card,
+.source-link-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.source-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(124, 230, 255, 0.08);
+  border: 1px solid rgba(124, 230, 255, 0.16);
+  color: var(--text);
+  transition: transform var(--ease), border-color var(--ease), background var(--ease);
+}
+
+.source-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(124, 230, 255, 0.3);
+  background: rgba(124, 230, 255, 0.12);
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
